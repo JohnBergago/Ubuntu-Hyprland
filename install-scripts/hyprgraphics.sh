@@ -42,9 +42,11 @@ fi
 
 # Install libjxl dependencies from tar ball. 
 printf "\n%s - Installing libjxl dependency from tarball.... \n" "${NOTE}"
+mkdir -p libjxl && cd $_
 wget https://github.com/libjxl/libjxl/releases/download/v0.11.1/jxl-debs-amd64-ubuntu-24.04-v0.11.1.tar.gz
 tar -xvf jxl-debs-amd64-ubuntu-24.04-v0.11.1.tar.gz
 sudo apt install -y ./libjxl_0.11.1_amd64.deb ./libjxl-dev_0.11.1_amd64.deb
+cd ..
 
 # Clone and build 
 printf "${NOTE} Installing hyprgraphics...\n"
