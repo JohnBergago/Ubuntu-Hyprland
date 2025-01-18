@@ -33,6 +33,9 @@ echo "$(tput bold)$(tput setaf 7)Because of the above, the latest Hyprland-Dots 
 echo "$(tput bold)$(tput setaf 7)Newer dots may not be compatible.$(tput sgr0)"
 echo "$(tput bold)$(tput setaf 7)This would also mean that support for this project might slowdown$(tput sgr0)"
 echo "$(tput bold)$(tput setaf 7)Please be guided$(tput sgr0)"
+
+echo "$(tput bold)$(tput setaf 7)This will build and install hyprland from source. However, as a consequence"
+echo "$(tput bold)$(tput setaf 7)newer versions of cmake, gcc, wayland, wayland-protocols, pipewire-0.3, libinput and libdisplay-info."
 printf "\n%.0s" {1..3}
 
 read -p "$(tput setaf 6)Would you like to proceed? (y/n): $(tput sgr0)" proceed
@@ -180,25 +183,38 @@ sudo apt update
 # Install hyprland packages
 execute_script "00-dependencies.sh"
 execute_script "01-hypr-pkgs.sh"
+execute_script "04-build-dependencies.sh"
 
 #execute_script "imagemagick.sh" #this is for compiling from source. 07 Sep 2024
 
 # install wallust
-execute_script "wallust.sh"
+# execute_script "wallust.sh"
 
-execute_script "fonts.sh"
-execute_script "swappy.sh"
-execute_script "swww.sh"
-execute_script "rofi-wayland.sh"
-execute_script "ags.sh"
+# execute_script "fonts.sh"
+# execute_script "swappy.sh"
+# execute_script "swww.sh"
+# execute_script "rofi-wayland.sh"
+# execute_script "ags.sh"
 
 sleep 1
+execute_script "wayland.sh"
+execute_script "wayland-protocols.sh"
+execute_script "libdisplay-info.sh"
+execute_script "libinput.sh"
+execute_script "hyprutils.sh"
+execute_script "hyprwayland-scanner.sh"
+execute_script "aquamarine.sh"
+
 execute_script "hyprlang.sh"
 execute_script "hyprcursor.sh"
+
+execute_script "xcb-errors.sh"
+execute_script "hyprgraphics.sh"
 
 sleep 1
 execute_script "hyprland.sh"
 
+exit 0
 
 #execute_script "cliphist.sh"
 
