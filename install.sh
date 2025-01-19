@@ -81,6 +81,7 @@ sddm=""
 thunar=""
 xdph=""
 zsh=""
+jakoolit_proceed=""
 
 # Export PKG_CONFIG_PATH for libinput
 export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
@@ -136,24 +137,31 @@ execute_script() {
 printf "\n"
 ask_yes_no "-Do you have any nvidia gpu in your system?" nvidia
 printf "\n"
-ask_yes_no "-Install GTK themes (required for Dark/Light function)?" gtk_themes
+ask_yes_no "-Do you want to proceed with the setup for JaKooLit-Dotfiles?" jakoolit_proceed
 printf "\n"
-ask_yes_no "-Do you want to configure Bluetooth?" bluetooth
-printf "\n"
-ask_yes_no "-Do you want to install Thunar file manager?" thunar
-printf "\n"
-ask_yes_no "-Install & configure SDDM log-in Manager plus (OPTIONAL) SDDM Theme?" sddm
+
+if [ "$jakoolit_proceed" == "Y" ]; then
+    ask_yes_no "-Install GTK themes (required for Dark/Light function)?" gtk_themes
+    printf "\n"
+    ask_yes_no "-Do you want to configure Bluetooth?" bluetooth
+    printf "\n"
+    ask_yes_no "-Do you want to install Thunar file manager?" thunar
+    printf "\n"
+    ask_yes_no "-Install & configure SDDM log-in Manager plus (OPTIONAL) SDDM Theme?" sddm
+    printf "\n"
+    ask_yes_no "-Install zsh & oh-my-zsh plus (OPTIONAL) pokemon-colorscripts for tty?" zsh
+    printf "\n"
+    ask_yes_no "-Install nwg-look? (a GTK Theming app - lxappearance-like) WARN! This Package Takes long time to build!" nwg
+    printf "\n"
+    ask_yes_no "-Installing on Asus ROG Laptops?" rog
+    printf "\n"
+    ask_yes_no "-Do you want to download and install pre-configured Hyprland-dotfiles?" dots
+    printf "\n"
+fi
+
 printf "\n"
 ask_yes_no "-Install XDG-DESKTOP-PORTAL-HYPRLAND? (For proper Screen Share ie OBS)" xdph
-printf "\n"
-ask_yes_no "-Install zsh & oh-my-zsh plus (OPTIONAL) pokemon-colorscripts for tty?" zsh
-printf "\n"
-ask_yes_no "-Install nwg-look? (a GTK Theming app - lxappearance-like) WARN! This Package Takes long time to build!" nwg
-printf "\n"
-ask_yes_no "-Installing on Asus ROG Laptops?" rog
-printf "\n"
-ask_yes_no "-Do you want to download and install pre-configured Hyprland-dotfiles?" dots
-printf "\n"
+
 
 # Ensuring all in the scripts folder are made executable
 chmod +x install-scripts/*
@@ -182,7 +190,7 @@ sudo apt update
 
 # Install hyprland packages
 execute_script "00-dependencies.sh"
-execute_script "01-hypr-pkgs.sh"
+execute_script "02-basic-packages.sh"
 execute_script "04-build-dependencies.sh"
 
 #execute_script "imagemagick.sh" #this is for compiling from source. 07 Sep 2024
@@ -199,6 +207,7 @@ execute_script "ags.sh"
 sleep 1
 execute_script "wayland.sh"
 execute_script "wayland-protocols.sh"
+execute_script "pipewire.sh"
 execute_script "libdisplay-info.sh"
 execute_script "libinput.sh"
 execute_script "hyprutils.sh"
@@ -218,6 +227,10 @@ execute_script "hyprland.sh"
 
 if [ "$nvidia" == "Y" ]; then
     execute_script "nvidia.sh"
+fi
+
+if [ "$jakoolit_proceed" == "Y" ] then
+    execute_script "01-hypr-pkgs.sh"
 fi
 
 if [ "$gtk_themes" == "Y" ]; then
@@ -253,7 +266,7 @@ if [ "$rog" == "Y" ]; then
 fi
 
 # re-install scripts it failed in some occasions
-execute_script "rofi-wayland.sh"
+# execute_script "rofi-wayland.sh"
 execute_script "hyprlock.sh"
 execute_script "hypridle.sh"
 
@@ -274,16 +287,18 @@ fi
 
 clear
 
-# copy fastfetch config if ubuntu is not present
-if [ ! -f "$HOME/.config/fastfetch/ubuntu.png" ]; then
-    cp -r assets/fastfetch "$HOME/.config/"
+if [ "$jakoolit_proceed" == "Y" ] then
+    # copy fastfetch config if ubuntu is not present
+    if [ ! -f "$HOME/.config/fastfetch/ubuntu.png" ]; then
+        cp -r assets/fastfetch "$HOME/.config/"
+    fi
+
+    printf "\n%.0s" {1..2}
+    # final check essential packages if it is installed
+    execute_script "03-Final-Check.sh"
+
+    printf "\n%.0s" {1..1}
 fi
-
-printf "\n%.0s" {1..2}
-# final check essential packages if it is installed
-execute_script "03-Final-Check.sh"
-
-printf "\n%.0s" {1..1}
 
 # Check if either hyprland or Hyprland files exist in /usr/local/bin/
 if [ -e /usr/local/bin/hyprland ] || [ -f /usr/local/bin/Hyprland ]; then
