@@ -48,7 +48,7 @@ fi
 printf "${NOTE} Installing xdg-desktop-portal-hyprland...\n"
 if git clone --recursive -b $xdph_tag https://github.com/hyprwm/xdg-desktop-portal-hyprland; then
     cd xdg-desktop-portal-hyprland || exit 1
-    cmake -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib -DCMAKE_INSTALL_PREFIX=/usr -B build
+    cmake -DCMAKE_INSTALL_LIBEXECDIR=/usr/local/lib -DCMAKE_INSTALL_PREFIX=/usr/local -B build
     cmake --build build
     if sudo cmake --install build 2>&1 | tee -a "$MLOG"; then
         printf "${OK} xdg-desktop-portal-hyprland installed successfully.\n" 2>&1 | tee -a "$MLOG"

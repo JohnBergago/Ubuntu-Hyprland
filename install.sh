@@ -196,13 +196,13 @@ execute_script "04-build-dependencies.sh"
 #execute_script "imagemagick.sh" #this is for compiling from source. 07 Sep 2024
 
 # install wallust
-execute_script "wallust.sh"
+# execute_script "wallust.sh"
 
 execute_script "fonts.sh"
-execute_script "swappy.sh"
-execute_script "swww.sh"
-execute_script "rofi-wayland.sh"
-execute_script "ags.sh"
+# execute_script "swappy.sh"
+# execute_script "swww.sh"
+# execute_script "rofi-wayland.sh"
+# execute_script "ags.sh"
 
 sleep 1
 execute_script "wayland.sh"
@@ -229,7 +229,7 @@ if [ "$nvidia" == "Y" ]; then
     execute_script "nvidia.sh"
 fi
 
-if [ "$jakoolit_proceed" == "Y" ] then
+if [ "$jakoolit_proceed" == "Y" ]; then
     execute_script "01-hypr-pkgs.sh"
 fi
 
@@ -267,6 +267,7 @@ fi
 
 # re-install scripts it failed in some occasions
 # execute_script "rofi-wayland.sh"
+execute_script "sdbus_cpp.sh"
 execute_script "hyprlock.sh"
 execute_script "hypridle.sh"
 
@@ -287,7 +288,7 @@ fi
 
 clear
 
-if [ "$jakoolit_proceed" == "Y" ] then
+if [ "$jakoolit_proceed" == "Y" ]; then
     # copy fastfetch config if ubuntu is not present
     if [ ! -f "$HOME/.config/fastfetch/ubuntu.png" ]; then
         cp -r assets/fastfetch "$HOME/.config/"

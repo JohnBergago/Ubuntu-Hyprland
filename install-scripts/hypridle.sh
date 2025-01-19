@@ -3,11 +3,10 @@
 # hypidle #
 
 idle=(
-    libsdbus-c++-dev
 )
 
 #specific branch or release
-idle_tag="v0.1.2"
+idle_tag="v0.1.5"
 
 ## WARNING: DO NOT EDIT BEYOND THIS LINE IF YOU DON'T KNOW WHAT YOU ARE DOING! ##
 # Determine the directory where the script is located

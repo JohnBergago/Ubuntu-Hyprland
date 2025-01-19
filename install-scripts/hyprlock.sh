@@ -7,7 +7,7 @@ lock=(
 )
 
 #specific branch or release
-lock_tag="v0.3.0"
+lock_tag="v0.6.1"
 
 ## WARNING: DO NOT EDIT BEYOND THIS LINE IF YOU DON'T KNOW WHAT YOU ARE DOING! ##
 # Determine the directory where the script is located
