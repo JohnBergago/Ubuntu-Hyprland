@@ -12,32 +12,32 @@ Extra=(
 
 # packages neeeded
 hypr_package=( 
-  # cliphist
-  # grim
-  # gvfs
-  # gvfs-backends
-  # inxi
-  # imagemagick
-  # kitty
-  # nano
-  # pavucontrol
-  # playerctl
-  # polkit-kde-agent-1
-  # python3-requests
-  # python3-pip
-  # qt5ct
-  # qt5-style-kvantum
-  # qt5-style-kvantum-themes
-  # qt6ct
-  # slurp
-  # sway-notification-center
-  # waybar
-  # wget
-  # wl-clipboard
-  # wlogout
-  # xdg-user-dirs
-  # xdg-utils
-  # yad
+  cliphist
+  grim
+  gvfs
+  gvfs-backends
+  inxi
+  imagemagick
+  kitty
+  nano
+  pavucontrol
+  playerctl
+  polkit-kde-agent-1
+  python3-requests
+  python3-pip
+  qt5ct
+  qt5-style-kvantum
+  qt5-style-kvantum-themes
+  qt6ct
+  slurp
+  sway-notification-center
+  waybar
+  wget
+  wl-clipboard
+  wlogout
+  xdg-user-dirs
+  xdg-utils
+  yad
 )
 
 # the following packages can be deleted. however, dotfiles may not work properly
@@ -63,10 +63,10 @@ force_reinstall=(
 
 # List of packages to uninstall as it conflicts with lots of things
 uninstall=(
-  # cargo
-  # dunst
-  # mako
-  # rofi
+  cargo
+  dunst
+  mako
+  rofi
 )
 
 ## WARNING: DO NOT EDIT BEYOND THIS LINE IF YOU DON'T KNOW WHAT YOU ARE DOING! ##

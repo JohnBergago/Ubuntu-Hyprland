@@ -133,27 +133,27 @@ execute_script() {
 }
 
 # Collect user responses to all questions
-# printf "\n"
-# ask_yes_no "-Do you have any nvidia gpu in your system?" nvidia
-# printf "\n"
-# ask_yes_no "-Install GTK themes (required for Dark/Light function)?" gtk_themes
-# printf "\n"
-# ask_yes_no "-Do you want to configure Bluetooth?" bluetooth
-# printf "\n"
-# ask_yes_no "-Do you want to install Thunar file manager?" thunar
-# printf "\n"
-# ask_yes_no "-Install & configure SDDM log-in Manager plus (OPTIONAL) SDDM Theme?" sddm
-# printf "\n"
-# ask_yes_no "-Install XDG-DESKTOP-PORTAL-HYPRLAND? (For proper Screen Share ie OBS)" xdph
-# printf "\n"
-# ask_yes_no "-Install zsh & oh-my-zsh plus (OPTIONAL) pokemon-colorscripts for tty?" zsh
-# printf "\n"
-# ask_yes_no "-Install nwg-look? (a GTK Theming app - lxappearance-like) WARN! This Package Takes long time to build!" nwg
-# printf "\n"
-# ask_yes_no "-Installing on Asus ROG Laptops?" rog
-# printf "\n"
-# ask_yes_no "-Do you want to download and install pre-configured Hyprland-dotfiles?" dots
-# printf "\n"
+printf "\n"
+ask_yes_no "-Do you have any nvidia gpu in your system?" nvidia
+printf "\n"
+ask_yes_no "-Install GTK themes (required for Dark/Light function)?" gtk_themes
+printf "\n"
+ask_yes_no "-Do you want to configure Bluetooth?" bluetooth
+printf "\n"
+ask_yes_no "-Do you want to install Thunar file manager?" thunar
+printf "\n"
+ask_yes_no "-Install & configure SDDM log-in Manager plus (OPTIONAL) SDDM Theme?" sddm
+printf "\n"
+ask_yes_no "-Install XDG-DESKTOP-PORTAL-HYPRLAND? (For proper Screen Share ie OBS)" xdph
+printf "\n"
+ask_yes_no "-Install zsh & oh-my-zsh plus (OPTIONAL) pokemon-colorscripts for tty?" zsh
+printf "\n"
+ask_yes_no "-Install nwg-look? (a GTK Theming app - lxappearance-like) WARN! This Package Takes long time to build!" nwg
+printf "\n"
+ask_yes_no "-Installing on Asus ROG Laptops?" rog
+printf "\n"
+ask_yes_no "-Do you want to download and install pre-configured Hyprland-dotfiles?" dots
+printf "\n"
 
 # Ensuring all in the scripts folder are made executable
 chmod +x install-scripts/*
@@ -188,13 +188,13 @@ execute_script "04-build-dependencies.sh"
 #execute_script "imagemagick.sh" #this is for compiling from source. 07 Sep 2024
 
 # install wallust
-# execute_script "wallust.sh"
+execute_script "wallust.sh"
 
-# execute_script "fonts.sh"
-# execute_script "swappy.sh"
-# execute_script "swww.sh"
-# execute_script "rofi-wayland.sh"
-# execute_script "ags.sh"
+execute_script "fonts.sh"
+execute_script "swappy.sh"
+execute_script "swww.sh"
+execute_script "rofi-wayland.sh"
+execute_script "ags.sh"
 
 sleep 1
 execute_script "wayland.sh"
@@ -213,8 +213,6 @@ execute_script "hyprgraphics.sh"
 
 sleep 1
 execute_script "hyprland.sh"
-
-exit 0
 
 #execute_script "cliphist.sh"
 
