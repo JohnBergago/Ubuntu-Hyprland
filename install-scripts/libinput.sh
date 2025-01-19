@@ -6,7 +6,7 @@ libinput=(
     libudev-dev 
     libevdev-dev 
     libwacom-dev 
-    libgtk-4-dev 
+    libgtk-3-dev
     libglib2.0-dev 
     libmtdev-dev
 )
@@ -56,6 +56,7 @@ if git clone --recursive -b $libinput_tag https://gitlab.freedesktop.org/libinpu
             -Ddocumentation=false &&
         ninja 
     if sudo ninja install 2>&1 | tee -a "$MLOG" ; then
+        echo Success >> $MLOG
         printf "${OK} libinput installed successfully.\n" 2>&1 | tee -a "$MLOG"
     else
         echo -e "${ERROR} Installation failed for libinput." 2>&1 | tee -a "$MLOG"
@@ -67,4 +68,4 @@ else
     echo -e "${ERROR} Download failed for libinput." 2>&1 | tee -a "$LOG"
 fi
 
-clear
+# clear

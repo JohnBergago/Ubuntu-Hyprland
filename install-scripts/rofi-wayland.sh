@@ -83,7 +83,7 @@ else
 fi
 
 # Move logs to Install-Logs directory
-mv "$MLOG" ../Install-Logs/ || true
+mv "$MLOG" ${PARENT_DIR}/Install-Logs/ || true
 cd .. || exit 1
 
 # clean up

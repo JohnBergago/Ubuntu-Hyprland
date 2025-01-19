@@ -65,7 +65,7 @@ if git clone --recursive -b $hyprgraphics_tag https://github.com/hyprwm/hyprgrap
         echo -e "${ERROR} Installation failed for hyprgraphics." 2>&1 | tee -a "$MLOG"
     fi
     #moving the addional logs to Install-Logs directory
-    mv $MLOG ../Install-Logs/ || true 
+    mv $MLOG ${PARENT_DIR}/Install-Logs/ || true 
     cd ..
 else
     echo -e "${ERROR} Download failed for hyprgraphics." 2>&1 | tee -a "$LOG"

@@ -55,7 +55,7 @@ install_and_log() {
     fi
 
 	#moving logs into main install-logs
-    mv $LOG ../Install-Logs/ || true 
+    mv $LOG ${PARENT_DIR}/Install-Logs/ || true 
     cd - || exit 1
   else
     echo -e "${ERROR} Cloning $project_name from $git_url failed."

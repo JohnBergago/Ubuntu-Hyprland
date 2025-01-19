@@ -53,7 +53,7 @@ if git clone --recursive -b $cursor_tag https://github.com/hyprwm/hyprcursor.git
         echo -e "${ERROR} Installation failed for hyprcursor." 2>&1 | tee -a "$MLOG"
     fi
     #moving the addional logs to Install-Logs directory
-    mv $MLOG ../Install-Logs/ || true 
+    mv $MLOG ${PARENT_DIR}/Install-Logs/ || true 
     cd ..
 else
     echo -e "${ERROR} Download failed for hyprcursor." 2>&1 | tee -a "$LOG"

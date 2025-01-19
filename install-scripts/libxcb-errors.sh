@@ -30,7 +30,7 @@ MLOG="install-$(date +%d-%H%M%S)_libxcb_errors2.log"
 printf "\n%s - Installing libxcb-errors dependencies.... \n" "${NOTE}"
 
 for PKG1 in "${xcb_errors[@]}"; do
-  install_package "$PKG1" 2>&1 | tee -a "$LOG"
+  re_install_package "$PKG1" 2>&1 | tee -a "$LOG"
   if [ $? -ne 0 ]; then
     echo -e "\e[1A\e[K${ERROR} - $PKG1 Package installation failed, Please check the installation logs"
     exit 1
@@ -79,7 +79,7 @@ if git clone --recursive -b $xcb_errors_tag https://gitlab.freedesktop.org/xorg/
         echo -e "${ERROR} Installation failed for libxcb-errors." 2>&1 | tee -a "$MLOG"
     fi
     # moving the addional logs to Install-Logs directory
-    mv $MLOG ../Install-Logs/ || true 
+    mv $MLOG ${PARENT_DIR}/Install-Logs/ || true 
     cd ..
 else
     echo -e "${ERROR} Download failed for libxcb-errors." 2>&1 | tee -a "$LOG"

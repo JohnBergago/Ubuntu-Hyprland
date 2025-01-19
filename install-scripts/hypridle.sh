@@ -52,7 +52,7 @@ if git clone --recursive -b $idle_tag https://github.com/hyprwm/hypridle.git; th
         echo -e "${ERROR} Installation failed for hypridle." 2>&1 | tee -a "$MLOG"
     fi
     #moving the addional logs to Install-Logs directory
-    mv $MLOG ../Install-Logs/ || true 
+    mv $MLOG ${PARENT_DIR}/Install-Logs/ || true 
     cd ..
 else
     echo -e "${ERROR} Download failed for hypridle." 2>&1 | tee -a "$LOG"

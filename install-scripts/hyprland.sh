@@ -31,14 +31,13 @@ fi
 
 if git clone --recursive -b $hyprland_tag "https://github.com/hyprwm/Hyprland"; then
   cd "Hyprland" || exit 1
-    meson setup --buildtype=release --prefix /usr/local build &&
-    ninja -C build &&
-  if sudo ninja -C build install 2>&1 | tee -a "$MLOG"; then
+  make all
+  if sudo make install 2>&1 | tee -a "$MLOG"; then
     printf "${OK} Hyprland installed successfully.\n" 2>&1 | tee -a "$MLOG"
   else
     echo -e "${ERROR} Installation failed for Hyprland." 2>&1 | tee -a "$MLOG"
   fi
-  mv $MLOG ../Install-Logs/ || true   
+  mv $MLOG ${PARENT_DIR}/Install-Logs/ || true   
   cd ..
 else
   echo -e "${ERROR} Download failed for Hyprland." 2>&1 | tee -a "$LOG"

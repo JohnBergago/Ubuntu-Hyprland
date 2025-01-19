@@ -52,7 +52,7 @@ if git clone --recursive -b $lock_tag https://github.com/hyprwm/hyprlock.git; th
         echo -e "${ERROR} Installation failed for hyprlock." 2>&1 | tee -a "$MLOG"
     fi
     #moving the addional logs to Install-Logs directory
-    mv $MLOG ../Install-Logs/ || true 
+    mv $MLOG ${PARENT_DIR}/Install-Logs/ || true 
     cd ..
 else
     echo -e "${ERROR} Download failed for hyprlock." 2>&1 | tee -a "$LOG"

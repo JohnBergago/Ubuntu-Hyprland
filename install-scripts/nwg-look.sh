@@ -55,11 +55,11 @@ if git clone --recursive -b "$nwg_tag" --depth 1 https://github.com/nwg-piotr/nw
     fi
 
     # Move logs to Install-Logs directory
-    mv "$MLOG" ../Install-Logs/ || true
+    mv "$MLOG" ${PARENT_DIR}/Install-Logs/ || true
     cd ..
 else
     echo -e "${ERROR} Failed to download nwg-look. Please check your connection" 2>&1 | tee -a "$LOG"
-    mv "$MLOG" ../Install-Logs/ || true
+    mv "$MLOG" ${PARENT_DIR}/Install-Logs/ || true
     exit 1
 fi
 

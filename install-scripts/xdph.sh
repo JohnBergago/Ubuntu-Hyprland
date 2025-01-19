@@ -56,7 +56,7 @@ if git clone --recursive -b $xdph_tag https://github.com/hyprwm/xdg-desktop-port
         echo -e "${ERROR} Installation failed for xdg-desktop-portal-hyprland." 2>&1 | tee -a "$MLOG"
     fi
     # Moving the additional logs to Install-Logs directory
-    mv "$MLOG" ../Install-Logs/ || true
+    mv "$MLOG" ${PARENT_DIR}/Install-Logs/ || true
     cd ..
 else
     echo -e "${ERROR} Download failed for xdg-desktop-portal-hyprland." 2>&1 | tee -a "$LOG"

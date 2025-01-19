@@ -67,7 +67,6 @@ uninstall=(
   # dunst
   # mako
   # rofi
-  libinput-dev
 )
 
 ## WARNING: DO NOT EDIT BEYOND THIS LINE IF YOU DON'T KNOW WHAT YOU ARE DOING! ##

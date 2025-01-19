@@ -61,7 +61,7 @@ if git clone --depth 1 https://github.com/jtheoof/swappy.git; then
         echo -e "${ERROR} Installation failed for swappy." 2>&1 | tee -a "$MLOG"
     fi
     #moving the addional logs to Install-Logs directory
-    mv $MLOG ../Install-Logs/ || true 
+    mv $MLOG ${PARENT_DIR}/Install-Logs/ || true 
     cd ..
 else
     echo -e "${ERROR} Download failed for swappy." 2>&1 | tee -a "$LOG"
