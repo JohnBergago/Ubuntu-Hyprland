@@ -133,27 +133,27 @@ execute_script() {
 }
 
 # Collect user responses to all questions
-printf "\n"
-ask_yes_no "-Do you have any nvidia gpu in your system?" nvidia
-printf "\n"
-ask_yes_no "-Install GTK themes (required for Dark/Light function)?" gtk_themes
-printf "\n"
-ask_yes_no "-Do you want to configure Bluetooth?" bluetooth
-printf "\n"
-ask_yes_no "-Do you want to install Thunar file manager?" thunar
-printf "\n"
-ask_yes_no "-Install & configure SDDM log-in Manager plus (OPTIONAL) SDDM Theme?" sddm
-printf "\n"
-ask_yes_no "-Install XDG-DESKTOP-PORTAL-HYPRLAND? (For proper Screen Share ie OBS)" xdph
-printf "\n"
-ask_yes_no "-Install zsh & oh-my-zsh plus (OPTIONAL) pokemon-colorscripts for tty?" zsh
-printf "\n"
-ask_yes_no "-Install nwg-look? (a GTK Theming app - lxappearance-like) WARN! This Package Takes long time to build!" nwg
-printf "\n"
-ask_yes_no "-Installing on Asus ROG Laptops?" rog
-printf "\n"
-ask_yes_no "-Do you want to download and install pre-configured Hyprland-dotfiles?" dots
-printf "\n"
+# printf "\n"
+# ask_yes_no "-Do you have any nvidia gpu in your system?" nvidia
+# printf "\n"
+# ask_yes_no "-Install GTK themes (required for Dark/Light function)?" gtk_themes
+# printf "\n"
+# ask_yes_no "-Do you want to configure Bluetooth?" bluetooth
+# printf "\n"
+# ask_yes_no "-Do you want to install Thunar file manager?" thunar
+# printf "\n"
+# ask_yes_no "-Install & configure SDDM log-in Manager plus (OPTIONAL) SDDM Theme?" sddm
+# printf "\n"
+# ask_yes_no "-Install XDG-DESKTOP-PORTAL-HYPRLAND? (For proper Screen Share ie OBS)" xdph
+# printf "\n"
+# ask_yes_no "-Install zsh & oh-my-zsh plus (OPTIONAL) pokemon-colorscripts for tty?" zsh
+# printf "\n"
+# ask_yes_no "-Install nwg-look? (a GTK Theming app - lxappearance-like) WARN! This Package Takes long time to build!" nwg
+# printf "\n"
+# ask_yes_no "-Installing on Asus ROG Laptops?" rog
+# printf "\n"
+# ask_yes_no "-Do you want to download and install pre-configured Hyprland-dotfiles?" dots
+# printf "\n"
 
 # Ensuring all in the scripts folder are made executable
 chmod +x install-scripts/*
@@ -208,7 +208,7 @@ execute_script "aquamarine.sh"
 execute_script "hyprlang.sh"
 execute_script "hyprcursor.sh"
 
-execute_script "xcb-errors.sh"
+execute_script "libxcb-errors.sh"
 execute_script "hyprgraphics.sh"
 
 sleep 1

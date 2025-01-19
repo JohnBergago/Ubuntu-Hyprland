@@ -6,7 +6,7 @@ libinput=(
     libudev-dev 
     libevdev-dev 
     libwacom-dev 
-    libgtk-3-dev 
+    libgtk-4-dev 
     libglib2.0-dev 
     libmtdev-dev
 )

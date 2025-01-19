@@ -3,7 +3,7 @@
 # hyprwayland-scanner #
 
 hyprwayland_scanner=(
-
+  libpugixml-dev 
 )
 
 #specific branch or release
@@ -59,5 +59,3 @@ else
 fi
 
 clear
-
-

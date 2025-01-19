@@ -59,5 +59,3 @@ else
 fi
 
 clear
-
-

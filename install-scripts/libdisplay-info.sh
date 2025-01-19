@@ -41,11 +41,12 @@ fi
 
 # Clone and build 
 printf "${NOTE} Installing libdisplay-info...\n"
-if git clone --recursive -b $libdisplay_info https://gitlab.freedesktop.org/emersion/libdisplay-info.git; then
+if git clone --recursive -b $libdisplay_info_tag https://gitlab.freedesktop.org/emersion/libdisplay-info.git; then
     cd libdisplay-info || exit 1
         mkdir -p build && cd $_ && 
         meson setup ..            \
             --prefix /usr/local   \
+            -Dwrap_mode=forcefallback \
             --buildtype=release  &&
         ninja 
     if sudo ninja install 2>&1 | tee -a "$MLOG" ; then

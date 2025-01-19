@@ -32,6 +32,7 @@ source "$(dirname "$(readlink -f "$0")")/Global_functions.sh"
 
 # Set the name of the log file to include the current date and time
 LOG="Install-Logs/install-$(date +%d-%H%M%S)_build_dependencies.log"
+MLOG="install-$(date +%d-%H%M%S)_build_dependencies2.log"
 
 # Installation of build dependencies
 printf "\n%s - Installing build dependencies.... \n" "${NOTE}"
@@ -45,13 +46,7 @@ for PKG1 in "${dependencies[@]}"; do
 done
 
 # Install newer version of cmake
-CMAKE_VERSION=3.31.4
-
-# check if cmake is already installed manually 
-if [ -f "/usr/local/bin/cmake" ]; then
-    echo "${NOTE} /usr/local/bin/cmake already exists. Skipping installation of cmake." 2>&1 | tee -a "$LOG"
-    exit 0
-fi
+cmake_tag=v3.31.4
 
 ##
 printf "${NOTE} Installing CMake from source...\n"  
@@ -64,11 +59,11 @@ fi
 
 # Clone and build ImageMagick
 printf "${NOTE} Installing cmake...\n"
-if git clone --depth 1 --single-branch -b v${CMAKE_VERSION} https://github.com/Kitware/CMake.git; then
+if git clone --recursive --depth 1 --single-branch -b ${cmake_tag} https://github.com/Kitware/CMake.git; then
     cd CMake || exit 1
-    mkdir build && $_ &&
-    cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local &&
-    make -j `nproc` &&
+        mkdir build && cd $_ &&
+        cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local &&
+        make -j `nproc` &&
     if sudo make install 2>&1 | tee -a "$MLOG" ; then
         printf "${OK} CMake installed successfully.\n" 2>&1 | tee -a "$MLOG"
     else

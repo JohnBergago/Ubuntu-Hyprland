@@ -35,7 +35,6 @@ dependencies=(
   libgtk-3-dev
   libgulkan-dev
   libinih-dev
-  libinput-dev
   libjbig-dev
   libjpeg-dev
   libjpeg62-dev
@@ -95,6 +94,7 @@ dependencies=(
   wayland-protocols
   xdg-desktop-portal
   xwayland
+  libre2-dev
 )
 
 ## WARNING: DO NOT EDIT BEYOND THIS LINE IF YOU DON'T KNOW WHAT YOU ARE DOING! ##
